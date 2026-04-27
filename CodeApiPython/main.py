@@ -16,6 +16,7 @@ async def root():
 async def get_recommendations(data: UserData):
     try:
         recommendations = generate_recommendations(data)
-        return {"recommendations": recommendations}
+        return recommendations
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
